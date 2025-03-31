@@ -77,7 +77,7 @@ Before running the bot, you need to configure the environment variables and data
 
 You can check out the database schema design here:
 
-![Database Models](https://i.ibb.co/mCdtwrLC/photo-6003757444334995146-w.jpg)
+![Database Models](https://i.postimg.cc/pLRWpWMP/Diagram-1-1-1.jpg)
 
 Ensure you have installed one of the supported databases:
 
