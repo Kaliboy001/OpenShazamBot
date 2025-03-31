@@ -251,15 +251,15 @@ If you find this project useful and would like to support its development, you c
 
 
 
-- **TON (The Open Network):** `YOUR_TON_ADDRESS`
+- **TON (The Open Network):** `UQCpNBn3dLdgRjy2NJW0yIDzJvVkloupRa2JyyeMgREcMEEq`
 
-- **Solana (SOL):** `YOUR_SOLANA_ADDRESS`
+- **Solana (SOL):** `HYtZx7L1j4ZyvQXuJBUDhr1skYTDnLxNmAQ4y5cVwsGm`
 
-- **Bitcoin (BTC):** `YOUR_BITCOIN_ADDRESS`
+- **Bitcoin (BTC):** `bc1qt3tlc0tuwqvwhvw46zm9cqwhpnrr7jyrd4ezu2`
 
-- **Ethereum (ETH):** `YOUR_ETH_ADDRESS`
+- **Ethereum (ETH):** `0x31BeE169d288F624C30f863BA15D2031C3C18d57`
 
-- **USDT (TRC20):** `YOUR_USDT_TRON_ADDRESS`
+- **USDT (TRC20):** `TGnfALByAA61ZCyZSEWv7WFJF4rdUEWciF`
 
 
 
