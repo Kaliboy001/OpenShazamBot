@@ -5,7 +5,7 @@ import time
 from aiogram import Router, Bot
 from aiogram.types import (
     InlineQuery, InputMediaAudio, InlineQueryResultArticle, InputTextMessageContent,
-    ChosenInlineResult, InlineQuery
+    ChosenInlineResult, InlineQuery, FSInputFile, URLInputFile
 )
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -79,29 +79,46 @@ async def chosen_result_handler(result: ChosenInlineResult, bot: Bot, db: AsyncS
     caption = bot_data.texts.song_music_caption.replace("<song_id>", song.id)
     
     if song.file_id:
-        url = song.file_id
-        
-    else:
+        file_id = song.file_id
         await bot.edit_message_media(
             inline_message_id=inline_message_id,
             media=InputMediaAudio(
-                media=config.LOADING_SONG,
-                caption=bot_data.texts.song_loading
+                media=file_id,
+                caption=caption
             ),
             reply_markup=inlines.music_lyrics(None, only_switch=True)
         )
-        url = await HandlersHelper.music_download(song)
+        return
         
-        song.file_id = url
-        await db.commit()
+    await bot.edit_message_media(
+        inline_message_id=inline_message_id,
+        media=InputMediaAudio(
+            media=config.LOADING_SONG,
+            caption=bot_data.texts.song_loading
+        ),
+        reply_markup=inlines.music_lyrics(None, only_switch=True)
+    )
+    
+    file_path = await HandlersHelper.music_download(song)
+    
+    # Because Aiogram dose not support input file for inline_message
+    message = await bot.send_audio(
+        result.from_user.id, 
+        audio=FSInputFile(file_path),
+        title=song.title,
+        performer=', '.join([artist['name'] for artist in song.artists]),
+        thumbnail=URLInputFile(song.photo)
+    )
+    await message.delete()
     
     await bot.edit_message_media(
         inline_message_id=inline_message_id,
         media=InputMediaAudio(
-            media=url,
-            title=song.title,
-            performer=', '.join([artist['name'] for artist in song.artists]),
+            media=message.audio.file_id, 
             caption=caption
         ),
         reply_markup=inlines.music_lyrics(None, only_switch=True)
     )
+    
+    song.file_id = message.audio.file_id
+    await db.commit()
