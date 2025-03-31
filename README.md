@@ -84,25 +84,19 @@ Ensure you have installed one of the supported databases:
 - **SQLite** (default, lightweight, no setup required)
 - **PostgreSQL**
 - **MySQL / MariaDB**
-- **OracleDB**
-- **Microsoft SQL Server**
 
 Install the corresponding database driver:
 
 ```sh
-# SQLite (default, no extra package needed)
+# SQLite (default, lightweight, no extra package needed)
+# Use aiosqlite for asynchronous SQLite support
+pip install aiosqlite
 
-# PostgreSQL
+# PostgreSQL (async support)
 pip install asyncpg
 
-# MySQL / MariaDB
-pip install pymysql
-
-# OracleDB
-pip install oracledb
-
-# Microsoft SQL Server
-pip install pyodbc
+# MySQL / MariaDB (async support)
+pip install aiomysql
 ```
 
 ### 🌐 Environment Variables
@@ -110,12 +104,10 @@ Change variables of the `.env` file in the root directory and define the require
 
 ```ini
 # Database Connection URL
-DATABASE_URL=sqlite:///database.db  # Default SQLite database
+DATABASE_URL=sqlite+aiosqlite:///database.db  # Default SQLite database
 
 # DATABASE_URL=postgresql+asyncpg://user:password@localhost/db_name
-# DATABASE_URL=mysql+pymysql://user:password@localhost/db_name
-# DATABASE_URL=oracle+oracledb://user:password@localhost/db_name
-# DATABASE_URL=mssql+pyodbc://user:password@localhost/db_name
+# DATABASE_URL=mysql+aiomysql://user:password@localhost/db_name
 
 # Webhook Secret Key (for security purposes)
 SECRET=your_webhook_secret
