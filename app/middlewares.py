@@ -35,7 +35,7 @@ class ChatOrUserMiddleware(BaseMiddleware):
         
         if event.message and (
             event.message.new_chat_members or event.message.left_chat_member or\
-                event.message.my_chat_member
+                event.my_chat_member
         ):
             return await handler(event, data)
         
