@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/Aiogram-3.x-00A9FF?style=flat&logo=telegram&logoColor=white" alt="Aiogram"/>
     <img src="https://img.shields.io/badge/SQLAlchemy-ORM-443E36?style=flat&logo=python&logoColor=white" alt="SQLAlchemy"/>
     <img src="https://img.shields.io/badge/PostgreSQL-12-336791?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
-    <img src="https://img.shields.io/github/license/YOUR_USERNAME/YOUR_PROJECT?style=flat&logo=github&logoColor=white" alt="License"/>
+    <img src="https://img.shields.io/github/license/enalite/openshazambot?style=flat&logo=github&logoColor=white" alt="License"/>
 </div>
 
 ## 🖼 Demo
@@ -72,6 +72,12 @@ scoop install ffmpeg
 Before running the bot, you need to configure the environment variables and database settings properly.
 
 ### 🛠 Prerequisites
+
+#### Database Models
+
+You can check out the database schema design here:
+
+![Database Models](https://i.ibb.co/jk5K1YWx/Untitled-1.png)
 
 Ensure you have installed one of the supported databases:
 
