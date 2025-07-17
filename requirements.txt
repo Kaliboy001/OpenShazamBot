@@ -1,10 +1,16 @@
+python-dotenv
+aiogram==3.0.0b7
+SQLAlchemy>=2.0
+pydub
+ffmpeg-python
+shazamio
+yt-dlp
+httpx
+eyed3
+ytmusicapi
+aiosqlite     # For SQLite async support (default)
+asyncpg       # For PostgreSQL async support (optional, if using Postgres)
+aiomysql      # For MySQL async support (optional, if using MySQL)
 fastapi==0.115.12
-aiogram==3.19.0
-SQLAlchemy==2.0.40
-shazamio==0.8.0
-ffmpeg-python==0.2.0
-yt-dlp==2025.3.27
-eyed3==0.9.7
 ytmusicapi==1.10.2
 httpx[http2]==0.28.1
-python-dotenv==1.1.0
